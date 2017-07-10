@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "prepublish": "npm run build",
-    "install": "npm run build",
+    "postinstall": "npm run build",
     "build": "babel src -d build -s --ignore __test__",
     "lint": "eslint .",
     "pretest": "npm run lint",
