@@ -17,8 +17,8 @@ export default function generateListOfImagesURLsAndNodes(root) {
   root.walkDecls(URL_PROPERTY_PATTERN, (node) => {
     const newList = generateList(node);
 
-    if (newList) {
-      list = newList;
+    if (newList && newList.length > 0) {
+      list = list.concat(newList);
     }
   });
 
