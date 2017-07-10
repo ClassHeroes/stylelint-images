@@ -7,9 +7,6 @@ const URL_VALUE_PATTERNS = [
 // CSS properties that can have an URL image
 // From: https://github.com/bezoerb/postcss-image-inliner/blob/8b825acebace2f1567195b49e47c0d454de4a3ae/index.js#L69
 const URL_PROPERTY_PATTERN = /^(background(?:-image)?)|(content)|(cursor)/;
-// Absolute URLs
-// From: http://stackoverflow.com/a/19709846/4709891
-const ABSOLUTE_URL = /^(?:[a-z]+:)?\/\//i;
 
 export default function generateListOfImagesURLsAndNodes(root) {
   let list = [];
@@ -34,9 +31,8 @@ function generateList(node) {
 function generateItems(node, valuePattern) {
   const URLs = getURLs(node, valuePattern);
   const URLsAndNodes = URLs.map(url => ({ url, node }));
-  const absoluteURLsAndNodes = leftAbsoluteURLs(URLsAndNodes);
 
-  return absoluteURLsAndNodes;
+  return URLsAndNodes;
 }
 
 function getURLs(node, valuePattern) {
@@ -44,8 +40,4 @@ function getURLs(node, valuePattern) {
   const splitURLs = URLs.split(',').map(url => url.trim());
 
   return splitURLs;
-}
-
-function leftAbsoluteURLs(URLsAndNodes) {
-  return URLsAndNodes.filter(item => ABSOLUTE_URL.test(item.url));
 }
