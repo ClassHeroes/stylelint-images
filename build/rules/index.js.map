@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/rules/index.js"],"names":["broken"],"mappings":";;;;;;AAAA;;;;AACA;;;;;;kBAEe;AACbA,0BADa;AAEb;AAFa,C","file":"index.js","sourcesContent":["import broken from './broken';\nimport preferDataURI from './prefer-data-uri';\n\nexport default {\n  broken,\n  'prefer-data-uri': preferDataURI\n};\n"]}
