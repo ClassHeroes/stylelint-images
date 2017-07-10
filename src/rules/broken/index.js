@@ -31,7 +31,7 @@ function checkIfImagesExists(list) {
 }
 
 function checkIfImageExists(listItem) {
-  return getImage(listItem.url)
+  return getImage(listItem.url, listItem.node.source.input.file)
     .then(() => {})
     .catch((error) => {
       if (error && error.response && error.response.status === 404) {

@@ -24,7 +24,6 @@ export default function getImage(url, source) {
     testPath = url;
     fileExistsCheck = remoteFileExists;
   }
-
   return fileExistsCheck(testPath)
     .then((response) => {
       cacheImageResults.set(url, response);
