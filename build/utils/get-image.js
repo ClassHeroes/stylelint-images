@@ -35,7 +35,6 @@ function getImage(url, source) {
     testPath = url;
     fileExistsCheck = remoteFileExists;
   }
-
   return fileExistsCheck(testPath).then(function (response) {
     cacheImageResults.set(url, response);
     return response;
