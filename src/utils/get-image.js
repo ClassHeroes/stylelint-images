@@ -13,10 +13,6 @@ export default function getImage(url, source) {
   let fileExistsCheck = null;
   let testPath = null;
 
-  if (cacheImageResults.has(url)) {
-    return preservePromiseMethods(cacheImageResults.get(url));
-  }
-
   if (!url.match(REMOTE_URL)) {
     testPath = path.join(path.dirname(source), url);
     fileExistsCheck = localFileExists;
@@ -24,13 +20,18 @@ export default function getImage(url, source) {
     testPath = url;
     fileExistsCheck = remoteFileExists;
   }
+
+  if (cacheImageResults.has(testPath)) {
+    return preservePromiseMethods(cacheImageResults.get(testPath));
+  }
+
   return fileExistsCheck(testPath)
     .then((response) => {
-      cacheImageResults.set(url, response);
+      cacheImageResults.set(testPath, response);
       return response;
     })
     .catch((error) => {
-      cacheImageResults.set(url, error);
+      cacheImageResults.set(testPath, error);
       return error;
     })
     .then(preservePromiseMethods);
