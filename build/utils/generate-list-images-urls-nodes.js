@@ -43,7 +43,8 @@ function generateItems(node, valuePattern) {
 }
 
 function getURLs(node, valuePattern) {
-  var URLs = node.value.replace(valuePattern, '$2');
+  var v = node.value.match(valuePattern)[0];
+  var URLs = v.replace(valuePattern, '$2');
   var splitURLs = URLs.split(',').map(function (url) {
     return url.trim();
   });

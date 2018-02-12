@@ -36,7 +36,8 @@ function generateItems(node, valuePattern) {
 }
 
 function getURLs(node, valuePattern) {
-  const URLs = node.value.replace(valuePattern, '$2');
+  const v = node.value.match(valuePattern)[0];
+  const URLs = v.replace(valuePattern, '$2');
   const splitURLs = URLs.split(',').map(url => url.trim());
 
   return splitURLs;
