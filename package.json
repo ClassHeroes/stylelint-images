@@ -13,18 +13,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ramasilveyra/stylelint-images.git"
+    "url": "git+https://github.com/ClassHeroes/stylelint-images.git"
   },
   "keywords": [
     "stylelint-plugin",
     "stylelint"
   ],
   "author": "Ramiro Silveyra d'Avila (@ramasilveyra)",
+  "contributors": [
+    "@eheaton",
+    "Adrien Atzert"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ramasilveyra/stylelint-images/issues"
+    "url": "https://github.com/ClassHeroes/stylelint-images/issues"
   },
-  "homepage": "https://github.com/ramasilveyra/stylelint-images#readme",
+  "homepage": "https://github.com/ClassHeroes/stylelint-images#readme",
   "dependencies": {
     "axios": "0.16.1",
     "lodash": "^4.17.4",
